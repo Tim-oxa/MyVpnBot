@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <script src="https://unpkg.com/ionicons@4.1.2/dist/ionicons.js"></script>
+    <link href="https://fonts.cdnfonts.com/css/nunito-sans" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/rubik" rel="stylesheet">
+    <meta name="theme-color" content="#000">
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            /* background-color: hsl(240, 0%, 10%); */
+        }
+
+        html {
+            background-image: url("/{{ webapp_path }}/static/bg3.jpg");
+            background-size: auto 100%;
+        }
+
+        body {
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(50px);
+            -webkit-backdrop-filter: blur(50px);
+        }
+
+        #mysub {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 4cqb;
+            width: 100%;
+            height: fit-content;
+        }
+
+        #mysub span {
+            font-size: 5.5cqb;
+            font-weight: 600;
+            font-family: sans-serif;
+            color: azure;
+        }
+
+        .block {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin-left: 7.5%;
+            width: 85%;
+            height: fit-content;
+            padding-top: 2cqb;
+            padding-bottom: 3.5cqb;
+            border-radius: 2cqb;
+            /* backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px); */
+            background-color: hsl(240, 0%, 10%);
+        }
+
+        .block span {
+            padding-left: 2.4cqb;
+            /* line-height: 10cqb; */
+            /* font-size: 5cqb; */
+            font-size: 4cqb;
+            font-weight: 500;
+            font-family: sans-serif;
+            /* font-family: 'Nunito Sans', sans-serif; */
+            font-family: 'Rubik', sans-serif;
+            color: rgb(185, 194, 194);
+        }
+
+        .block span ion-icon {
+            position: relative;
+            transform: translate(-10%, 20%);
+            font-size: 4.5cqb;
+        }
+
+        .block .text {
+            padding-left: 3.5cqb;
+            line-height: 3.5cqb;
+            /* font-size: 4cqb; */
+            font-size: 3.4cqb;
+            font-weight: 500;
+            font-family: sans-serif;
+            font-family: 'Rubik', sans-serif;
+            color: gray;
+        }
+
+        #status {
+            top: 6cqb;
+        }
+
+        :root {
+            /* --icons-color: rgb(105, 105, 160); */
+            /* --icons-color: rgb(197, 90, 32); */
+            --icons-color: rgb(174, 79, 27);
+            /* --buttons-color: #66d9e8; */
+            --buttons-color: #0d96a8;
+        }
+
+        #status span ion-icon {
+            color: var(--icons-color);
+        }
+
+        #trafic {
+            top: 8cqb;
+        }
+
+        #trafic span ion-icon {
+            color: var(--icons-color);
+        }
+
+        #date {
+            top: 10cqb;
+        }
+
+        #date span ion-icon {
+            color: var(--icons-color);
+        }
+
+        #howconnect {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 0 0 0;
+            width: 100%;
+            top: 14cqb;
+            padding-top: 4cqb;
+            padding-bottom: 12cqb;
+            border-radius: 5cqb 5cqb 0 0;
+        }
+
+        #howconnect span {
+            /* text-align: center; */
+            padding-left: 0cqb;
+            font-size: 4.5cqb;
+            font-family: sans-serif;
+            font-weight: 600;
+            color: azure;
+        }
+
+        .arrow {
+            margin-top: 2cqb;
+            margin-bottom: 2cqb;
+            /* text-align: center; */
+            padding-left: 0cqb;
+            line-height: auto;
+            font-size: 6.5cqb;
+        }
+
+        .arrow ion-icon {
+            color: var(--icons-color);
+        }
+
+        #howconnect .text {
+            max-width: 90%;
+            text-align: center;
+            padding-left: 0cqb;
+            color: rgb(162, 162, 162);
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* position: relative;
+            left: 50%;
+            transform: translateX(-50%); */
+            padding: 2cqb;
+            padding-left: 4cqb;
+            padding-right: 4cqb;
+            margin-top: 3cqb;
+            margin-bottom: 1cqb;
+            min-width: 35%;
+            width: fit-content;
+            height: fit-content;
+            /* border: 0.25cqb solid rgb(162, 162, 162); */
+            /* border: 0.25cqb solid rgb(29, 112, 29); */
+            border: 0.25cqb solid var(--buttons-color);
+            border-radius: 2cqb;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            /* background-color: rgb(29, 112, 29); */
+            background-color: var(--buttons-color);
+            
+            label {
+                color: hsl(240, 0%, 10%);
+            }
+        }
+
+        .btn label {
+            line-height: 3.5cqb;
+            /* font-size: 4cqb; */
+            font-size: 3.4cqb;
+            font-weight: 500;
+            font-family: sans-serif;
+            font-family: 'Rubik', sans-serif;
+            /* color: rgb(29, 112, 29); */
+            color: var(--buttons-color);
+        }
+
+        /* #download {
+            border-color: rgb(29, 112, 29);
+        }
+
+        #download label {
+            color: rgb(29, 112, 29);
+        }
+
+        #addsub {
+            border-color: rgb(29, 112, 29);
+        }
+
+        #addsub label {
+            color: rgb(29, 112, 29);
+        } */
+        
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="mysub">
+        <span>Моя подписка</span>
+    </div>
+    <div id="status" class="block">
+        <span>Статус <ion-icon name="information-circle-outline"></ion-icon></span>
+        <br>
+        <label class="text">{{ status }}</label>
+    </div>
+    <div id="trafic" class="block">
+        <span>Трафик <ion-icon name="podium"></ion-icon></span>
+        <br>
+        <label class="text">{{ traffic_used }} из {{ traffic_limit }} Gb</label>
+    </div>
+    <div id="date" class="block">
+        <span>Истекает <ion-icon name="calendar"></ion-icon></span>
+        <br>
+        <label class="text">{{ expire }}</label>
+    </div>
+    <div id="howconnect" class="block">
+        <span>Как подключиться?</span>
+        <label class="arrow"><ion-icon name="arrow-down"></ion-icon></label>
+        <label class="text">Установи приложение Happ</label>
+        <a href="{{ app_url }}">
+            <div class="btn" id="download">
+                <label>Скачать</label>
+            </div>
+        </a>
+        <label class="arrow"><ion-icon name="arrow-down"></ion-icon></label>
+        <label class="text">Добавь подписку, нажав на кнопку снизу</label>
+        <a href="{{ sub_url }}" target="_blank">
+            <div class="btn" id="addsub">
+                <label>Добавить подписку</label>
+            </div>
+        </a>
+    </div>
+</body>
+</html>
