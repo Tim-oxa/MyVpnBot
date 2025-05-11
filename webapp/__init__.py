@@ -8,6 +8,7 @@ import hashlib
 import config
 import json
 import hmac
+import time
 
 
 webapp = Blueprint(
@@ -55,13 +56,19 @@ async def verify():
         parsed_data = dict(urllib.parse.parse_qsl(init_data))
     except ValueError:
         return "", 404
+
     if "hash" not in parsed_data:
         return "", 404
+
+    auth_date = int(parsed_data.get("auth_date", 0))
+    if abs(time.time() - auth_date) > 60:
+        return jsonify({"ok": False, "error": "Auth date expired"}), 403
 
     hash_ = parsed_data.pop('hash')
     data_check_string = "\n".join(
         f"{k}={v}" for k, v in sorted(parsed_data.items(), key=itemgetter(0))
     )
+
     secret_key = hmac.new(
         key=b"WebAppData", msg=config.BOT_TOKEN.encode(), digestmod=hashlib.sha256
     )
@@ -71,10 +78,13 @@ async def verify():
 
     if calculated_hash == hash_:
         user = json.loads(parsed_data["user"])
+
+        full_name = f"{user['first_name']} {user.get('last_name', '')}".strip()
+
         if not await user_exists(user["id"]):
             await create_user(
                 user_id=user["id"],
-                full_name=f"{user['first_name']} {user['last_name']}",
+                full_name=full_name,
                 username=user.get("username")
             )
         user = await db.get_user(user["id"])
