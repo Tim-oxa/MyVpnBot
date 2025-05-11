@@ -1,0 +1,47 @@
+DB_URL = "mongodb://user:password@db.example.com:27017"
+DB_NAME = "MyDbName"
+
+BOT_TOKEN="bot-token"
+BOT_USERNAME = "examplebot"
+
+PANEL_URL = "https://panel.example.com/api"
+PANEL_TOKEN = "panel-auth-token"
+
+ADMIN_ID = 123123123
+
+USERNAME_PREFIX = "a"
+
+DEFAULT_TRAFFIC_LIMIT = 15
+DEFAULT_TRAFFIC_STRATEGY = "MONTH"
+
+SUBSCRIPTION_TRAFFIC_LIMIT = 1000
+
+DEFAULT_INBOUNDS = {
+    "УКАЗЫВАТЬ",
+    "ТЕГИ, А НЕ UUID"
+}
+
+SUBS_DOMAIN = "subs.example.com"
+
+WEBAPP_DOMAIN = "webapp.example.com"
+WEBAPP_PATH = "webapp-path"
+
+WEBHOOK_PATH = "path/to/webhook"
+
+LOCAL_PORT = 8080
+
+APP_URL = "https://example.com/app"
+SUPPORT_USERNAME = "username"
+
+MESSAGES_CHANNEL = -123123123
+STICKER_ID = "telegram-sticker-id"
+START_MESSAGE_ID = 1
+MY_SUB_MESSAGE_ID = 2
+BUY_SUB_MESSAGE_ID = 3
+BUY_MONTH_MESSAGE_ID = 4
+BUY_YEAR_MESSAGE_ID = 5
+CONFIRM_PAYMENT_MONTH_MESSAGE_ID = 6
+CONFIRM_PAYMENT_YEAR_MESSAGE_ID = 7
+REVOKE_PAYMENT_MESSAGE_ID = 8
+EXPIRE_MESSAGE_ID = 9
+LIMITED_MESSAGE_ID = 10
