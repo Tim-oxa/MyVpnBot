@@ -26,7 +26,7 @@ async def stop():
 async def main():
     await asyncio.gather(
         dp.start_polling(bot),
-        app.run_task("127.0.0.1", config.LOCAL_PORT)
+        app.run_task("0.0.0.0", config.LOCAL_PORT)
     )
 
 asyncio.run(main())
