@@ -1,0 +1,3 @@
+aiogram
+quart
+git+https://github.com/Tim-oxa/RemnawavePythonApi.git
